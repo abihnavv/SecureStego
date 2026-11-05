@@ -2,3 +2,4 @@ Flask
 Pillow
 cryptography
 Flask-WTF
+gunicorn
