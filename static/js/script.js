@@ -74,8 +74,12 @@ document.addEventListener("DOMContentLoaded", function () {
     const previewImage = document.getElementById("previewImage");
     const previewText = document.getElementById("previewText");
     const dropArea = document.getElementById("dropArea");
+    const uploadInstructions = document.getElementById("uploadInstructions");
+    const imagePreview = document.querySelector(".image-preview");
 
     if (!imageInput || !dropArea) return;
+
+    let currentImageURL = null;
 
     function showPreview(file) {
         if (!file) return;
@@ -88,24 +92,41 @@ document.addEventListener("DOMContentLoaded", function () {
             return;
         }
 
-        previewImage.src = URL.createObjectURL(file);
+        // Remove previous preview URL
+        if (currentImageURL) {
+            URL.revokeObjectURL(currentImageURL);
+        }
+
+        // Create image preview
+        currentImageURL = URL.createObjectURL(file);
+        previewImage.src = currentImageURL;
+
+        // Show image inside upload box
+        imagePreview.style.display = "block";
         previewImage.style.display = "block";
         previewText.style.display = "none";
+
+        // Hide upload instructions
+        uploadInstructions.style.display = "none";
     }
 
+    // File selection
     imageInput.addEventListener("change", function () {
         showPreview(this.files[0]);
     });
 
+    // Drag over
     dropArea.addEventListener("dragover", function (e) {
         e.preventDefault();
         dropArea.classList.add("dragover");
     });
 
+    // Drag leave
     dropArea.addEventListener("dragleave", function () {
         dropArea.classList.remove("dragover");
     });
 
+    // Drop image
     dropArea.addEventListener("drop", function (e) {
         e.preventDefault();
         dropArea.classList.remove("dragover");

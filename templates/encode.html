@@ -58,13 +58,26 @@
             <form action="/encode" method="POST" enctype="multipart/form-data">
                 <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
 
-                <div class="drop-area" id="dropArea">
-                    <p>📁 Drag and drop your image here</p>
-                    <p>or choose an image below</p>
+                <label class="drop-area" id="dropArea" for="imageInput">
 
-                    <input type="file" id="imageInput" name="image"
-                            accept="image/png,image/jpeg" required>
-                </div>
+                    <div id="uploadInstructions">
+                        <p>📁 Drag and drop your image here</p>
+                        <p>or click anywhere to select an image</p>
+                    </div>
+
+                    <input type="file"
+                            id="imageInput"
+                            name="image"
+                            accept="image/png,image/jpeg"
+                            required
+                            class="upload-input">
+
+                    <div class="image-preview">
+                        <img id="previewImage" src="" alt="Image Preview">
+                        <p id="previewText">Selected image preview</p>
+                    </div>
+
+                    </label>
 
                 <div class="image-preview">
                     <img id="previewImage" src="" alt="Image Preview">
