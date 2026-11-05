@@ -64,9 +64,11 @@ python app.py
 
 5. Open the website
 
-Open your browser and visit:
+## 🌐 Live Demo
 
-http://127.0.0.1:5000
+Try SecureStego here:
+
+[Open SecureStego](https://securestego-tvbq.onrender.com)
 
 Security Features
 
