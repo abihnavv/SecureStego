@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hide Message | Secure Steganography</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    {% if success %}
+    <div id="toast" class="toast toast-success">
+        ✓ {{ success }}
+    </div>
+    {% endif %}
+
+    {% if error %}
+    <div id="toast" class="toast toast-error">
+        ✕ {{ error }}
+    </div>
+    {% endif %}
+
+    <nav class="navbar">
+        <h2>SecureStego</h2>
+
+        <div>
+            <a href="/">Home</a>
+            <a href="/encode">Hide Message</a>
+            <a href="/decode">Extract Message</a>
+            <a href="/about">About</a>
+        </div>
+    </nav>
+
+    <section class="encode-section">
+
+        <h1 class="page-heading">Hide Your Secret Message</h1>
+
+        <div class="encode-container">
+
+            {% if error %}
+                <p style="color: red;">{{ error }}</p>
+            {% endif %}
+
+            {% if success %}
+                <div class="result-box">
+                    <h3 style="color: #00ff99;">{{ success }}</h3>
+
+                    <a href="{{ url_for('download', filename=download_file) }}">
+                        <button type="button" class="encode-btn">
+                            Download Encoded Image
+                        </button>
+                    </a>
+                </div>
+            {% endif %}
+
+            <form action="/encode" method="POST" enctype="multipart/form-data">
+                <input type="hidden" name="csrf_token" value="{{ csrf_token() }}">
+
+                <div class="drop-area" id="dropArea">
+                    <p>📁 Drag and drop your image here</p>
+                    <p>or choose an image below</p>
+
+                    <input type="file" id="imageInput" name="image"
+                            accept="image/png,image/jpeg" required>
+                </div>
+
+                <div class="image-preview">
+                    <img id="previewImage" src="" alt="Image Preview">
+                    <p id="previewText">Selected image preview</p>
+                </div>
+
+                <label>Enter Your Secret Message:</label>
+                <textarea name="message" placeholder="Write your secret message..." required></textarea>
+
+                <div class="password-container">
+                    <input type="password" id="password" name="password"
+                            placeholder="Enter a password" required>
+
+                            <div class="password-strength">
+                                <div class="strength-bar">
+                                    <div id="strengthFill"></div>
+                                </div>
+                                <p id="strengthText">Password strength: Not entered</p>
+                            </div>
+
+                    <button type="button" onclick="togglePassword('password')">
+                            👁
+                    </button>
+                </div>
+
+                <button type="submit" class="encode-btn">
+                    Hide Message
+                </button>
+
+            </form>
+
+        </div>
+
+    </section>
+
+            <!-- Loading Screen -->
+    <div id="loadingScreen" class="loading-screen">
+        <div class="loader"></div>
+        <h3>Processing your request...</h3>
+        <p>Please wait</p>
+    </div>
+
+    <script src="{{ url_for('static', filename='js/script.js') }}"></script>
+
+</body>
+</html>

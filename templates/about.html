@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>About | SecureStego</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <nav class="navbar">
+        <div class="logo">
+            <span>Secure</span>Stego
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('encode') }}">Hide Message</a></li>
+            <li><a href="{{ url_for('decode') }}">Extract Message</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+    </nav>
+
+    <section class="encode-section">
+
+        <div class="page-heading">
+            <h1>About <span>SecureStego</span></h1>
+
+            <p>
+                Protecting confidential communication through
+                image steganography and encryption.
+            </p>
+        </div>
+
+        <div class="encode-container">
+
+            <h2>What is SecureStego?</h2>
+
+            <p>
+                SecureStego is a web-based image steganography tool
+                designed to hide confidential messages inside digital
+                images. It combines image steganography with encryption
+                to provide an additional layer of privacy.
+            </p>
+
+            <br>
+
+            <h2>What is Image Steganography?</h2>
+
+            <p>
+                Image steganography is a technique used to hide secret
+                information inside digital images. Unlike ordinary
+                encryption, which makes information unreadable,
+                steganography attempts to conceal the existence of
+                the information itself.
+            </p>
+
+            <br>
+
+            <h2>How Does SecureStego Work?</h2>
+
+            <p>
+                SecureStego uses the Least Significant Bit (LSB)
+                technique to hide encrypted messages inside image pixels.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Step 1 - Message Encryption:</strong><br>
+                The secret message is encrypted using AES-256-GCM
+                with a password-derived key.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Step 2 - Data Hiding:</strong><br>
+                The encrypted data is converted into binary and hidden
+                inside the least significant bits of image pixels.
+            </p>
+
+            <br>
+
+            <p>
+                <strong>Step 3 - Message Extraction:</strong><br>
+                The website reads the hidden binary data from the
+                encoded image and decrypts it using the correct password.
+            </p>
+
+            <br>
+
+            <h2>Security Features</h2>
+
+            <p>
+                • AES-256-GCM authenticated encryption<br>
+                • PBKDF2-HMAC-SHA256 password-based key derivation<br>
+                • Random salt and nonce generation<br>
+                • LSB image steganography<br>
+                • Image format and file size validation<br>
+                • Password strength validation<br>
+                • Secure file download validation
+            </p>
+
+            <br>
+
+            <h2>Technologies Used</h2>
+
+            <p>
+                <strong>Frontend:</strong> HTML, CSS and JavaScript<br>
+                <strong>Backend:</strong> Python and Flask<br>
+                <strong>Image Processing:</strong> Pillow<br>
+                <strong>Encryption:</strong> Python Cryptography Library
+            </p>
+
+            <br>
+
+            <h2>Important Security Information</h2>
+
+            <p>
+                SecureStego provides an additional layer of privacy
+                through encryption and steganography. However, image
+                resizing, compression or editing may damage hidden data.
+                Users should keep the original encoded PNG image and
+                remember their password.
+            </p>
+
+        </div>
+
+    </section>
+
+    <footer>
+        <p>© 2026 SecureStego | Image Steganography Project</p>
+    </footer>
+
+</body>
+</html>

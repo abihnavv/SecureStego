@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SecureStego | Image Steganography</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+</head>
+
+<body>
+
+    <!-- Navigation Bar -->
+
+    <nav class="navbar">
+
+        <div class="logo">
+            <span>Secure</span>Stego
+        </div>
+
+        <ul class="nav-links">
+            <li><a href="{{ url_for('home') }}">Home</a></li>
+            <li><a href="{{ url_for('encode') }}">Hide Message</a></li>
+            <li><a href="{{ url_for('decode') }}">Extract Message</a></li>
+            <li><a href="{{ url_for('about') }}">About</a></li>
+        </ul>
+
+    </nav>
+
+
+    <!-- Hero Section -->
+
+    <section class="hero">
+
+        <div class="hero-content">
+
+            <p class="tagline">YOUR PRIVACY, OUR PRIORITY</p>
+
+            <h1>
+                Hide Your Secrets <br>
+                Inside <span>Images.</span>
+            </h1>
+
+            <p class="description">
+                Securely hide confidential messages inside images
+                using advanced image steganography techniques.
+                Keep your communication private and protected.
+            </p>
+
+            <div class="hero-buttons">
+
+                <a href="{{ url_for('encode') }}" class="btn primary-btn">
+                    Hide Message
+                </a>
+
+                <a href="{{ url_for('decode') }}" class="btn secondary-btn">
+                    Extract Message
+                </a>
+
+            </div>
+
+        </div>
+
+
+        <!-- Security Card -->
+
+        <div class="hero-card">
+
+            <div class="card-icon">🔐</div>
+
+            <h2>Secure Communication</h2>
+
+            <p>
+                Your secret message stays hidden inside
+                an ordinary-looking image.
+            </p>
+
+            <div class="security-status">
+                <span class="status-dot"></span>
+                Privacy Protected
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Features Section -->
+
+    <section class="features" id="features">
+
+        <h2>How It Works</h2>
+
+        <p class="features-description">
+            Three simple steps to protect your communication.
+        </p>
+
+        <div class="feature-container">
+
+            <div class="feature-box">
+                <h3>01. Upload Image</h3>
+                <p>Select an image that will carry your secret message.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>02. Hide Message</h3>
+                <p>Embed your confidential message inside the image.</p>
+            </div>
+
+            <div class="feature-box">
+                <h3>03. Extract Message</h3>
+                <p>Retrieve your hidden message whenever needed.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+
+    <!-- Footer -->
+
+    <footer>
+        <p>© 2026 SecureStego | Image Steganography Project</p>
+    </footer>
+
+
+</body>
+</html>
